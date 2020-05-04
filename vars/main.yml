@@ -1,0 +1,11 @@
+---
+# vars file for configure_meraki_vlan
+api_key: "{{ api_key }}"
+api_address: n40.meraki.com
+organization_name: Trace3
+network_name: East Majors Lab
+new_vlan_id: 700
+subnet_name: JT_Test_Subnet
+subnet_cidr: 10.10.220.0/24
+gateway_ip: 10.10.220.1
+...

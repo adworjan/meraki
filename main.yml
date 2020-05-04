@@ -1,0 +1,27 @@
+---
+# tasks file for configure_meraki_vlan
+- name: "List all networks associated to the {{ organization_name }} organization"
+  meraki_network:
+    auth_key: "{{ api_key }}"
+    state: query
+    org_name: "{{ organization_name }}"
+- name: Query all VLANs in a network.
+  meraki_vlan:
+    auth_key: "{{ api_key }}"
+    host: "{{ api_address }}"
+    org_name: "{{ organization_name }}"
+    net_name: "{{ network_name }}"
+    state: query
+  delegate_to: localhost
+- name: Create a VLAN.
+  meraki_vlan:
+    auth_key: "{{ api_key }}"
+    org_name: "{{ organization_name }}"
+    net_name: "{{ network_name }}"
+    state: present
+    vlan_id: "{{ new_vlan_id }}"
+    name: "{{ subnet_name }}"
+    subnet: "{{ subnet_cidr }}"
+    appliance_ip: "{{ gateway_ip }}"
+  delegate_to: localhost
+...
