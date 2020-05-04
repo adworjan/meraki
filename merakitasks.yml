@@ -4,22 +4,28 @@
   hosts: localhost
   gather_facts: false
   
+  vars: 
+    new_vlan_id: 700
+    subnet_name: JT_Test_Subnet
+    subnet_cidr: 10.10.220.0/24
+    gateway_ip: 10.10.220.1
+  
   tasks:
-    - name: List all networks associated to the {{ organization_name }} organization
+    - name: List all networks associated to the {{ org_name }} organization
       meraki_network:
         state: query
-        org_name: "{{ organization_name }}"
+        org_name: "{{ org_name }}"
     - name: Query all VLANs in a network.
       meraki_vlan:
         host: "{{ api_address }}"
-        org_name: "{{ organization_name }}"
-        net_name: "{{ network_name }}"
+        org_name: "{{ org_name }}"
+        net_name: "{{ net_name }}"
         state: query
       delegate_to: localhost 
     - name: Create a VLAN.
       meraki_vlan:
-        org_name: "{{ organization_name }}"
-        net_name: "{{ network_name }}"
+        org_name: "{{ org_name }}"
+        net_name: "{{ net_name }}"
         state: present
         vlan_id: "{{ new_vlan_id }}"
         name: "{{ subnet_name }}"
