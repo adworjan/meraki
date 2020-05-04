@@ -1,23 +1,28 @@
 ---
-# tasks file for configure_meraki_vlan
-- name: "List all networks associated to the {{ organization_name }} organization"
-  meraki_network:
-    state: query
-    org_name: "{{ organization_name }}"
-- name: Query all VLANs in a network.
-  meraki_vlan:
-    host: "{{ api_address }}"
-    org_name: "{{ organization_name }}"
-    net_name: "{{ network_name }}"
-    state: query
-  delegate_to: localhost
-- name: Create a VLAN.
-  meraki_vlan:
-    org_name: "{{ organization_name }}"
-    net_name: "{{ network_name }}"
-    state: present
-    vlan_id: "{{ new_vlan_id }}"
-    name: "{{ subnet_name }}"
-    subnet: "{{ subnet_cidr }}"
-    appliance_ip: "{{ gateway_ip }}"
-  delegate_to: localhost
+
+- name: Meraki Playbook
+  hosts: localhost
+  gather_facts: false
+  
+  tasks:
+    - name: List all networks associated to the {{ organization_name }} organization
+      meraki_network:
+        state: query
+        org_name: "{{ organization_name }}"
+    - name: Query all VLANs in a network.
+      meraki_vlan:
+        host: "{{ api_address }}"
+        org_name: "{{ organization_name }}"
+        net_name: "{{ network_name }}"
+        state: query
+      delegate_to: localhost 
+    - name: Create a VLAN.
+      meraki_vlan:
+        org_name: "{{ organization_name }}"
+        net_name: "{{ network_name }}"
+        state: present
+        vlan_id: "{{ new_vlan_id }}"
+        name: "{{ subnet_name }}"
+        subnet: "{{ subnet_cidr }}"
+        appliance_ip: "{{ gateway_ip }}"
+      delegate_to: localhost
