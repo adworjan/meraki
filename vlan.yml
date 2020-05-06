@@ -1,6 +1,6 @@
 ---
 
-- name: Meraki Playbook
+- name: Meraki Playbook to create a VLAN
   hosts: localhost
   gather_facts: false
   
