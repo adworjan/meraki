@@ -18,6 +18,7 @@
         net_name: "{{ net_name }}"
         state: query
       delegate_to: localhost 
+      
     - name: Create a VLAN.
       meraki_vlan:
         org_name: "{{ org_name }}"
