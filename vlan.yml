@@ -11,10 +11,6 @@
     gateway_ip: 10.10.220.1
   
   tasks:
-    - name: List all networks associated to the {{ org_name }} organization
-      meraki_network:
-        state: query
-        org_name: "{{ org_name }}"
     - name: Query all VLANs in a network.
       meraki_vlan:
         host: "{{ api_address }}"
