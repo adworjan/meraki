@@ -5,7 +5,7 @@
   gather_facts: false
     
   tasks:
-    - name: Create a VLAN.
+    - name: Create an SSID.
       meraki_ssid:
         org_name: "{{ org_name }}"
         net_name: "{{ net_name }}"
