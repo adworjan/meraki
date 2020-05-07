@@ -1,0 +1,21 @@
+---
+
+- name: Meraki Layer 7 Firwaall Configuration
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Set some example Layer 7 firewall rules
+      meraki_mx_l7_firewall:
+        auth_key: 671041721cba802f9efb97392c56693c796c09d4
+        org_name: Trace3
+        net_name: East Majors Lab
+        state: present
+        rules:
+          - type: application
+            application:
+              name: TechCrunch
+          - type: application
+            application:
+              name: Steam
+      delegate_to: localhost
