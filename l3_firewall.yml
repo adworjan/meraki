@@ -13,7 +13,7 @@
         rules:
           - comment: "{{ comment }}"
             src_cidr: "{{ src_cidr }}" 
-            src_port: "{{ src_pot }}"
+            src_port: "{{ src_port }}"
             dest_cidr: "{{ dest_cidr }}"
             dest_port: "{{ dest_port }}"
             protocol: "{{ protocol }}"
