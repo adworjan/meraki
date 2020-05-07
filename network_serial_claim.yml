@@ -5,12 +5,12 @@
   gather_facts: false
 
   tasks:
-   - name: Query the network for the ID
-      meraki_network:
-        state: query
-        org_name: "{{ org_name }}"
-        net_name: "{{ net_name }}"
-      register: network
+  - name: Query the network for the ID
+    meraki_network:
+      state: query
+      org_name: "{{ org_name }}"
+      net_name: "{{ net_name }}"
+    register: network
   
   - name: Make API call to Claim Serial
     uri:
