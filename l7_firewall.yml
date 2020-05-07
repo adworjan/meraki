@@ -1,6 +1,6 @@
 ---
 
-- name: Meraki Layer 7 Firwaall Configuration
+- name: Meraki Layer 7 Firewall Configuration
   hosts: localhost
   gather_facts: false
 
