@@ -14,7 +14,7 @@
   
   - name: Make API call to Claim Serial
     uri:
-      url: https://n40.meraki.com/api/v0/networks/{{ network.data.id }}/devices/claim
+      url: https://{{ api_address }}/api/v0/networks/{{ network.data.id }}/devices/claim
       method: POST
       body_format: json
       body: {"serials":[ '{{ order_serial }}' ]}
