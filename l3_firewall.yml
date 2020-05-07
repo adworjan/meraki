@@ -11,11 +11,11 @@
         net_name: "{{ net_name }}"
         state: present
         rules:
-          - comment: {{ comment }}
-            src_cidr: {{ src_cidr }} 
-            src_port: {{ src_pot }} 
-            dest_cidr: {{ dest_cidr }} 
-            dest_port: {{ dest_port }}
-            protocol: {{ protocol }}
-            policy: {{ policy }}
+          - comment: "{{ comment }}"
+            src_cidr: "{{ src_cidr }}" 
+            src_port: "{{ src_pot }}"
+            dest_cidr: "{{ dest_cidr }}"
+            dest_port: "{{ dest_port }}"
+            protocol: "{{ protocol }}"
+            policy: "{{ policy }}"
       delegate_to: localhost
