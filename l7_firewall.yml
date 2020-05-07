@@ -1,0 +1,20 @@
+---
+
+- name: Meraki Layer 7 Firwaall Configuration
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Set some example Layer 7 firewall rules
+      meraki_mx_l7_firewall:
+        org_name: {{ org_name }}
+        net_name: {{ net_name }}
+        state: present
+        rules:
+          - type: application
+            application:
+              name: TechCrunch
+          - type: application
+            application:
+              name: Steam
+      delegate_to: localhost

@@ -1,0 +1,21 @@
+---
+
+- name: Meraki Layer 3 Firwaall Configuration
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Set a Layer 3 firewall rule
+      meraki_mx_l3_firewall:
+        org_name: "{{ org_name }}"
+        net_name: "{{ net_name }}"
+        state: present
+        rules:
+          - comment: Block1
+            src_cidr: 10.99.20.0/24
+            src_port: any
+            dest_cidr: 10.10.220.1/32
+            dest_port: any
+            protocol: any
+            policy: deny
+      delegate_to: localhost
