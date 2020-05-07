@@ -11,10 +11,8 @@
         net_name: {{ net_name }}
         state: present
         rules:
-          - type: application
+          - policy: "{{ policy }}"
+            type: application
             application:
-              name: TechCrunch
-          - type: application
-            application:
-              name: Steam
+              name: "{{ app_name }}"
       delegate_to: localhost
