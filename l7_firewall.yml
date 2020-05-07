@@ -11,7 +11,7 @@
         net_name: "{{ net_name }}"
         state: present
         rules:
-          - policy: "{{ policy }}"
+          - policy: deny
             type: application
             application:
               name: "{{ app_name }}"
