@@ -17,7 +17,7 @@
       url: https://n40.meraki.com/api/v0/networks/{{ network.data.id }}/devices/claim
       method: POST
       body_format: json
-      body: {"serials":["{{ serial }}"]}
+      body: {"serials":["{{ order_serial }}"]}
       headers:
         X-Cisco-Meraki-API-Key: "{{ auth_key }}"
     register: result
