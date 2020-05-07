@@ -3,6 +3,8 @@
   hosts: localhost
   connection: local
   gather_facts: false
+  vars:
+    order_serial: '"121"'
 
   tasks:
   - name: Query the network for the ID
